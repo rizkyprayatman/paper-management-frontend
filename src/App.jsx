@@ -1,14 +1,41 @@
-// eslint-disable-next-line no-unused-vars
-import { useState } from "react";
-import "./App.css";
+import React from "react";
+import "./index.css";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet
+} from "react-router-dom";
 
-function App() {
+/* imports pages */
+import SignInForm from "./pages/SignInForm.jsx";
+import RegisterForm from "./pages/RegisterForm.jsx";
+
+export default function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Outlet />,
+      children: [
+        {
+          path: "/",
+          element: <SignInForm />,
+        },
+        {
+          path: "/login",
+          element: <SignInForm />,
+        },
+        {
+          path: "/register",
+          element: <RegisterForm />,
+        },
+      ],
+    },
+  ]);
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   );
 }
-
-export default App;
