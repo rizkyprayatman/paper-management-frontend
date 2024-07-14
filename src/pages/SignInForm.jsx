@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthServices from "../services/AuthServices";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -50,6 +50,14 @@ export default function SignInForm() {
       });
     }
   };
+
+  useEffect(() => {
+    // Check if token exists in localStorage
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   return (
     <section className="">
