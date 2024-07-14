@@ -9,6 +9,8 @@ import {
 /* imports pages */
 import SignInForm from "./pages/SignInForm.jsx";
 import RegisterForm from "./pages/RegisterForm.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import DocumentDetail from "./pages/DocumentDetail.jsx";
 
 export default function App() {
 
@@ -28,6 +30,14 @@ export default function App() {
         {
           path: "/register",
           element: <RegisterForm />,
+        },
+        {
+          path: "/dashboard",
+          element: <Dashboard />,
+        },
+        {
+          path: "/document/:id", // Rute dinamis untuk detail dokumen
+          element: <DocumentDetail />,
         },
       ],
     },

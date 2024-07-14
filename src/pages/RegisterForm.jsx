@@ -8,7 +8,7 @@ export default function SignInForm() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State untuk menampilkan atau menyembunyikan password
+  const [showPassword, setShowPassword] = useState(false);
   const [loadingLogin, setLoadingLogin] = useState(false);
 
   const Toast = Swal.mixin({
@@ -53,13 +53,13 @@ export default function SignInForm() {
   return (
     <section className="">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <h1 className="font-semibold text-[#238FDD] shadow-md text-5xl my-5">
+        <h1 className="font-semibold text-[#238FDD] text-center text-5xl my-5">
           Paper Management
         </h1>
         <div className="w-full bg-[#238FDD] rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-2xl font-bold leading-tight tracking-tight text-white md:text-2xl ">
-              Daftar
+              Register
             </h1>
             <form
               onSubmit={handleSubmit}
@@ -152,21 +152,21 @@ export default function SignInForm() {
                 disabled={loadingLogin}
                 className="w-full text-white bg-black hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg text-md px-5 py-2.5 text-center"
               >
-                {loadingLogin == true ? "Loading..." : "Daftar Sekarang"}
+                {loadingLogin == true ? "Loading..." : "Register"}
               </button>
             </form>
           </div>
         </div>
         <div className="text-center text-black mt-4">
           <p className="font-medium">
-            Sudah Memiliki Akun ?{" "}
+            Already have an account?{" "}
             <button
               onClick={() => {
                 navigate("/login");
               }}
               className="font-bold text-[#238FDD]"
             >
-              Masuk Sekarang
+              Sign In Now
             </button>
           </p>
         </div>
